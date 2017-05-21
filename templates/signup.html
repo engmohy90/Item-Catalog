@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block head %}
+    <title>signUp</title>
+    <script src="{{url_for('static', filename='signup.js')}}"></script>
+{% endblock %}
+{% block body %}
+<div class="mycontainer">
+    {% if error %}
+    <p class="warnning">{{error}} allready exist</p>
+    {% endif %}
+    <form method="post">
+            <div class="form-group" id="username">
+                <label>username</label>
+                <input type="text" name="user" id="user" class="form-control">
+                <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                <p class="warnning user"></p>
+            </div>
+            <div class="form-group" id="mail">        
+                <label>email</label>
+                <input type="text" name="email" id="email" class="form-control">
+                <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+
+                <p class="warnning email"></p>
+            </div>
+            <div class="form-group" id="pass">
+                <label>password</label>
+                <input type="password" name="password" id="password" class="form-control">
+                <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                <p class="warnning password"></p>
+            </div>
+            <div class="form-group" id="veri">
+                <label>verify password</label>
+                <input type="password" name="verify" id="verify" class="form-control">
+                <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                <p class="warnning verify"></p>
+            </div>
+            <input type="submit"  id="submit" disabled>
+    </form>
+</div>
+{% endblock %}
+ 

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block head %}
+    <title>delete</title>
+{% endblock %}
+{% block body %}
+<div  class="mycontainer" >
+    <div class="myrow">
+        <h4 class="warnning"> are you sure you want to delete {{items.title}} from {{category}} ?</h4>
+    </div>
+    <div class="myrow">
+        <div class="mycol-2">
+            <form method="post">
+                <button name="delete" value="ok">delete</button>
+                <input type="text" name="id" value="{{items.id}}" hidden>
+            </form>
+        </div>
+        <div class="mycol-1">
+            <button onclick="location.href='/catalog/{{category}}/{{items.title}}'">cancle</button>
+        </div>
+    </div>
+{% endblock %}

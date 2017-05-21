@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block head %}
+<title>item details</title>
+{% endblock %}
+{% block body %}
+<div class="mycontainer">
+    <div class="relative">
+    <div class="myrow">
+        <div class="mycol-3">
+            <a href="/catalog/{{catalog}}/items"><h2>{{catalog}}</h2></a>
+            <hr>
+        </div>
+        <div class="dropdown absolute">
+            <div class="dropdown-toggle" id="dropdownMenu1" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><span class="glyphicon glyphicon-option-horizontal floatright"></span>
+            </div>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <li><a href="/catalog/{{catalog}}/{{items.title}}/edit">Edit</a></li>
+                    <li><a href="/catalog/{{catalog}}/{{items.title}}/delete">Delete</a></li>
+                </ul>         
+        </div>
+    </div>
+    </div>
+    <div class="myrow">
+        <div class="mycol-3">
+            <h3>{{items.title}}</h3>
+            <hr>
+        </div>
+    </div>  
+ 
+    <div class="myrow">
+        <div class="mycol-3">
+            <p>
+                {{items.details}}
+            </p>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+

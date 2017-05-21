@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block head %}
+<title>catalog</title>
+{% endblock %}
+{% block body %}
+
+<div  class="mycontainer" >
+        <div class="myrow">
+            <h2 class="category">Categories</h2>
+            <h2 class="latest">Latest item</h2>
+        </div>
+        {% for item in latest %}
+        <div class="myrow">
+            <a class="category" href="/catalog/{{item[0]}}/items">{{item[0]}}</a>
+            <a class="latest" href="/catalog/{{item[0]}}/{{item[1].title}}">{{item[1].title}}</a>
+        </div>
+        {% endfor %}
+</div>
+<br>
+
+
+{% endblock %}

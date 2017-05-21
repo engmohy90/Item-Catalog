@@ -1,0 +1,131 @@
+html body {
+    background-color: #f8d6a9;
+}
+
+.mycontainer {
+    background-color: #d7a058;
+    width: 70%;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 5%;
+}
+
+.myrow {
+
+    display: flex;
+    padding-bottom: 0;
+}
+.mycol-1 {
+    width: 33.3%;
+    min-height: 1px;
+      padding-right: 15px;
+      padding-left: 15px;
+}
+
+.mycol-2 {
+    width: 66.6%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+.mycol-3 {
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+.category {
+    width: 50%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+.latest {
+    width: 50%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+
+}
+
+header li {
+    display: inline;
+    margin: 6px;
+
+}
+header li  a {
+    color: green;
+}
+
+.warnning {
+    color: red;
+}
+
+.flashes {
+    color: green;
+}
+
+/*item info*/
+.relative{
+position: relative;
+}
+.absolute {
+    position: absolute;
+    bottom: 0;
+    right: 4%;
+}
+
+
+/*newC.html*/
+
+.form-inline {
+    text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+    .form-inline{
+        text-align: left;
+    }
+}
+
+/*items*/
+
+#items {
+    border-left-style: solid;
+    border-left-color: #f5f5dc;
+    position: relative;
+}
+
+#addItem {
+    position: absolute;
+    bottom: 3%;
+    right: 3%;
+}
+
+
+/*profile*/
+
+#photo {
+    position: relative;
+}
+
+#profilelogo {
+
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    left: -40px;
+}
+
+#wellcome {
+    position: relative;
+}
+@media screen and (max-width: 768px) {
+    #profilelogo {
+
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    left: 90%;
+    }
+}

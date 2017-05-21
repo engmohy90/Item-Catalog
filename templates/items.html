@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block head %}
+<title>items</title>
+{% endblock %}
+{% block body %}
+<div class="mycontainer">
+    <div class="myrow">
+        <div class="category">
+            <h2>Categories</h2>
+            {% for cat in  allcategory %}
+            <h4><a href="/catalog/{{cat.name}}/items">{{cat.name}}</a></h4>
+            <br>
+            {% endfor %}
+        </div>
+        <div class="latest" id="items">
+            <h2>{{catalog}} items({{len}})</h2>
+            {% for item in items %}
+            <h4><a href="/catalog/{{catalog}}/{{item.title}}">{{item.title}}</a></h4>
+            {% endfor %}
+
+            <a href="/catalog/newitem" type="button" class="btn btn-primary" id="addItem">add item</a>
+        </div>
+        
+
+    </div>
+            
+</div>
+{% endblock %}

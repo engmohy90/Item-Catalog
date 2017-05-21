@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+{% block head %}
+<title>profile</title>
+<script src="{{url_for('static', filename='signup.js')}}"></script>
+
+{% endblock %}
+{% block body %}
+<div class="mycontainer">
+    <form method="POST" id="form">
+        <div class="form-group" id="username">
+            <label>username</label>
+            <input type="text" name="user" id="user" class="form-control" placeholder="{{user.name}}">
+            <p class="warnning user"></p>
+            <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+
+        </div>
+        <div class="form-group" id="mail">        
+            <label>email</label>
+            <input type="text" name="email" id="email" class="form-control" placeholder="{{user.email}}">
+            <p class="warnning email"></p>
+            <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+
+
+        </div>
+        <div class="form-group" id="pass">
+            <label>password</label>
+            <input type="password" name="password" id="password" class="form-control">
+            <p class="warnning password"></p>
+            <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+
+        </div>
+        <div class="form-group" id="photo">
+            <label>photo url</label>
+            <input type="text" name="photo" id="photoUrl" class="form-control" placeholder="{{user.photo}}">
+
+        </div>      
+        </form>
+
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  submit
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">confirm password</h4>
+      </div>
+      <div class="modal-body">
+        <label>please confirm password</label>
+        <input type="password" name="confirm" id="confirm">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" onclick="confirm()">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script type="text/javascript">
+    function confirm() {
+        var confirm = $("#confirm").val()
+        var user = $("#user").val()
+        var mail = $("#email").val()
+        var pass = $("#password").val()
+        var photo = $("#photoUrl").val()
+        var changes = JSON.stringify([confirm,user,mail,pass,photo])
+
+        console.log(changes)
+        $.ajax("/confirm",{
+            method: "POST",
+            data: changes,
+            contentType: 'application/octet-stream; charset=utf-8',
+
+            success: function(result){
+                console.log(result)
+                if (result == "submit"){
+                    $("#form").submit();
+                    location.href = "/"
+                }
+                else{
+                    alert("wrong password");
+                    location.reload();
+                }
+
+            }
+        }
+
+        )
+    }
+</script>
+
+
+</div>
+
+{% endblock %}
