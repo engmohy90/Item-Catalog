@@ -13,7 +13,7 @@ from oauth2client import client, crypt
 from database_setup import User, Category, Items
 
 
-app = Flask("__name__")
+app = Flask(__name__)
 bcrypt = Bcrypt(app)
 engine = create_engine("sqlite:///catalog.db")
 connectDb = sessionmaker(bind=engine)()
